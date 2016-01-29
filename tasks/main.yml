@@ -1,0 +1,6 @@
+- name: put proc gathering shell script
+  template: dest=/usr/local/bin/proc_to_json src=proc_to_json.sh mode=755
+
+- name: put Telegraf config
+  template: src=telegraf_proc.conf dest=/etc/telegraf/telegraf.d/telegraf_proc.conf
+  notify: restart telegraf
